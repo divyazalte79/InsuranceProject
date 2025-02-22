@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: healthapp-eta-deploy
+  name: insuranceapp-eta-deploy
   labels:
-    app: healthapp-eta-app
+    app: insuranceapp-eta-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: healthapp-eta-app
+      app: insuranceapp-eta-app
   template:
     metadata:
       labels:
-        app: healthapp-eta-app
+        app: insuranceapp-eta-app
     spec:
       containers:
-      - name: healthapp-eta-container
-        image: divyazalte79/healthapp-eta-app
+      - name: insuranceapp-eta-container
+        image: divyazalte79/insuranceapp-eta-app
         ports:
         - containerPort: 8081
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: healthapp-eta-np-service
+  name: insuranceapp-eta-np-service
   labels:
-    app: healthapp-eta-app
+    app: insuranceapp-eta-app
 spec:
   selector:
-    app: healthapp-eta-app
+    app: insuranceapp-eta-app
 
   type: NodePort
   ports:
